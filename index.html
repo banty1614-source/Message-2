@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Share</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div id="loginScreen" class="container">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <p id="loginError"></p>
+    </div>
+
+    <div id="mainApp" class="container" style="display:none;">
+        <h1>Share with Friend <span id="userLabel"></span></h1>
+        
+        <div class="connection">
+            <input type="text" id="roomId" placeholder="Enter Room ID">
+            <button id="joinBtn">Join Room</button>
+            <span id="status">Disconnected</span>
+            <span id="typing" style="display:none;">Friend is typing...</span>
+        </div>
+
+        <div class="share-section">
+            <textarea id="textInput" placeholder="Type your message..."></textarea>
+            <button id="sendText">Send Text</button>
+            
+            <input type="file" id="imageInput" accept="image/*">
+            <button id="sendImage">Send Image</button>
+            
+            <input type="file" id="videoInput" accept="video/*">
+            <button id="sendVideo">Send Video</button>
+        </div>
+
+        <div id="messages"></div>
+        
+        <div class="admin-controls">
+            <button id="exportBtn">Export Data</button>
+            <button id="importBtn">Import Data</button>
+            <input type="file" id="importFile" accept=".json" style="display:none;">
+            <button id="clearBtn">Clear Messages</button>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="container" style="display:none;">
+        <h1>Admin Panel</h1>
+        <div class="admin-stats">
+            <p>Active Users: <span id="activeUsers">0</span></p>
+            <p>Total Messages: <span id="totalMessages">0</span></p>
+        </div>
+        <button id="viewAllBtn">View All Messages</button>
+        <button id="adminLogoutBtn">Logout</button>
+        <div id="adminMessages"></div>
+    </div>
+
+    <script src="hello.js"></script>
+</body>
+</html>
